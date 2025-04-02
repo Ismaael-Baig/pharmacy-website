@@ -1,0 +1,166 @@
+/* 
+  Hero Banner (Matching Contact Page Style):
+  Large background + black overlay + centered text + breadcrumb 
+*/
+.about-hero {
+  background: url('images/about-bg.jpg') center center / cover no-repeat;
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+/* Black overlay for hero background */
+.about-hero-overlay {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Text container above overlay */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* 
+  If you don't need this <p> for the hero text, 
+  you can remove or keep it for any subtitle 
+*/
+.hero-text p {
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Breadcrumb styling */
+.breadcrumb {
+  color: #fff;
+  font-size: 0.9rem;
+  background: none !important;
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: inline-block;
+}
+
+/* 
+  MATCHING CONTACT PAGE: 
+  => White text, no underline by default, underline on hover 
+*/
+.breadcrumb a {
+  color: #fff !important; 
+  text-decoration: none !important;
+  font-size: 1rem;           /* Adjust if your contact page uses a different size */
+  font-weight: 400;          /* Or match contact page's weight */
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline !important;
+}
+
+/* Main Content */
+.about-content {
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  align-items: flex-start;
+}
+
+.about-left {
+  flex: 1.5;
+}
+
+.about-left h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1b5e20;
+}
+
+.about-left p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Contact Box */
+.about-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.about-right img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-box {
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.contact-box h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.contact-box p {
+  margin: 10px 0;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-wrapper {
+    flex-direction: column;
+  }
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+  .about-left h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* 
+  ✅ OVERRIDE THE GLOBAL LIGHT GREEN BACKGROUND
+  => Forces entire page to have a white background
+*/
+body {
+  background-color: #fff !important;
+}

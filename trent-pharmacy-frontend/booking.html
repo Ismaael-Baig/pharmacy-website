@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trent Pharmacy | Booking</title>
+
+  <!-- Google Fonts (Optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@400;600&display=swap" 
+    rel="stylesheet"
+  />
+
+  <!-- Main site CSS (e.g. pharmacy.css) -->
+  <link rel="stylesheet" href="pharmacy.css" />
+  <link rel="stylesheet" href="booking.css" />
+  <link rel="stylesheet" href="footer.css" />
+</head>
+<body>
+  <!-- Dynamic Header -->
+  <div id="header-container"></div>
+
+  <!-- (A) Booking Hero Banner -->
+  <section class="booking-hero">
+    <div class="booking-hero-overlay">
+      <h1>Booking</h1>
+      <p>
+        <a href="pharmacy.html" class="breadcrumb-home">Home</a> &gt; Booking
+      </p>
+    </div>
+  </section>
+
+  <!-- (B) BOOKING WIZARD CONTAINER -->
+  <div class="booking-container">
+    <!-- Step Indicators (styled like Walmsley) -->
+    <div class="booking-steps-indicator">
+      <div class="step-indicator" data-step="1">
+        <span class="step-num">1</span>
+        <span class="step-label">Service</span>
+      </div>
+      <div class="step-indicator" data-step="2">
+        <span class="step-num">2</span>
+        <span class="step-label">Time</span>
+      </div>
+      <div class="step-indicator" data-step="3">
+        <span class="step-num">3</span>
+        <span class="step-label">Details</span>
+      </div>
+      <div class="step-indicator" data-step="4">
+        <span class="step-num">4</span>
+        <span class="step-label">Done</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Choose Service -->
+    <div class="booking-step step-1 active">
+      <h2>Select a Service</h2>
+      <p>Please choose the type of appointment you wish to book:</p>
+      <div class="service-options">
+        <label>
+          <input type="radio" name="service" value="Flu Vaccination" />
+          Flu Vaccination
+        </label>
+        <label>
+          <input type="radio" name="service" value="Blood Pressure Check" />
+          Blood Pressure Check
+        </label>
+        <label>
+          <input type="radio" name="service" value="UTI Consultation" />
+          UTI Consultation
+        </label>
+        <label>
+          <input type="radio" name="service" value="Travel Clinic" />
+          Travel Clinic
+        </label>
+        <label>
+          <input type="radio" name="service" value="Aesthetics Consultation" />
+          Aesthetics Consultation
+        </label>
+      </div>
+      <div class="step-nav">
+        <button class="next-btn" data-next="2" disabled>Next &raquo;</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Date & Time -->
+    <div class="booking-step step-2">
+      <h2>Pick a Date &amp; Time Slot</h2>
+      <p>Select an available date from the calendar, then choose a 15‑minute slot.</p>
+      <div class="date-time-grid">
+        <!-- (1) Calendar -->
+        <div class="mini-calendar">
+          <div class="calendar-header">
+            <select id="monthSelect"></select>
+            <select id="yearSelect"></select>
+          </div>
+          <table class="calendar-table">
+            <thead>
+              <tr>
+                <th>Mon</th><th>Tue</th><th>Wed</th>
+                <th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
+              </tr>
+            </thead>
+            <tbody id="calendarBody">
+              <!-- Calendar days will be generated via JS -->
+            </tbody>
+          </table>
+        </div>
+        <!-- (2) Time slots in a grid (table) -->
+        <div class="time-slot-grid">
+          <h4 id="selectedDateLabel">Select a date...</h4>
+          <!-- We'll generate a table of time slots instead of a vertical list -->
+          <table class="time-slots-table" id="timeSlotsTable">
+            <!-- booking.js will populate the <tbody> with time cells in a grid -->
+            <tbody>
+              <!-- Example row (JS will build these):
+              <tr>
+                <td class="time-slot">9:00 am</td>
+                <td class="time-slot">9:15 am</td>
+                <td class="time-slot">9:30 am</td>
+                <td class="time-slot">9:45 am</td>
+              </tr>
+              etc...
+              -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="step-nav">
+        <button class="back-btn" data-back="1">&laquo; Back</button>
+        <button class="next-btn" data-next="3" disabled>Next &raquo;</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Your Details -->
+    <div class="booking-step step-3">
+      <h2>Enter Your Details</h2>
+      <p>Please provide your name, email, and any notes:</p>
+      <div class="details-form">
+        <label>
+          <span>Full Name:</span>
+          <input type="text" id="fullName" placeholder="John Doe" />
+        </label>
+        <label>
+          <span>Email:</span>
+          <input type="email" id="email" placeholder="john@example.com" />
+        </label>
+        <label>
+          <span>Notes:</span>
+          <textarea id="notes" placeholder="Anything else we should know?"></textarea>
+        </label>
+        <!-- Example of a consent checkbox -->
+        <label class="consent-label">
+          <input type="checkbox" id="consentCheckbox" />
+          I consent to have my personal information stored and processed by Trent Pharmacy 
+          for the purpose of fulfilling my appointment.
+        </label>
+      </div>
+      <div class="step-nav">
+        <button class="back-btn" data-back="2">&laquo; Back</button>
+        <button class="next-btn" data-next="4" disabled>Next &raquo;</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Confirmation -->
+    <div class="booking-step step-4">
+      <h2>All Done!</h2>
+      <p>Your appointment request has been recorded. We’ll send you a confirmation email soon.</p>
+      <p>Thank you for choosing <strong>Trent Pharmacy</strong>!</p>
+      <div class="step-nav">
+        <button class="back-btn" data-back="3">&laquo; Back</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery, Owl Carousel, pharmacy.js (for header load) and booking.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="pharmacy.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>
+
+<!-- ✅ Footer Container -->
+<div id="footer-container"></div>

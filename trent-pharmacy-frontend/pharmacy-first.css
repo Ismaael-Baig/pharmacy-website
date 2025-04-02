@@ -1,0 +1,257 @@
+/* === General Reset === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* 
+   ===========================
+   HERO SECTION (TINTED OVERLAY)
+   Same approach as contact page
+   ===========================
+*/
+.hero-banner {
+    position: relative;
+    height: 400px; /* same height as your contact page hero */
+    background: url('images/pharmacy-first-banner.jpg') center center / cover no-repeat;
+}
+
+/* Full-page tinted overlay using ::before */
+.hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3); /* slight tint over entire hero */
+}
+
+/* The text container is absolutely centered */
+.hero-banner .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 1; /* above the overlay */
+}
+
+/* Title + breadcrumb text styling */
+.hero-banner .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.hero-banner .hero-content p {
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+/* If you have a breadcrumb link to home, remove underline, make it white, etc. */
+.hero-banner .hero-content p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+.hero-banner .hero-content p a:hover {
+    color: #ccc;
+    text-decoration: none;
+}
+
+/* 
+   ===========================
+   PROFESSIONAL INTRO SECTION
+   ===========================
+*/
+.intro-section {
+    padding: 80px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.intro-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+}
+
+.intro-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro-text {
+    flex: 1;
+}
+
+/* ✅ "View Conditions" Button Styling (Matches Walmley) */
+.primary-btn {
+    display: inline-block;
+    background: #d8232a; /* Red background */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* ✅ Hover Effect - Changes to Green */
+.primary-btn:hover {
+    background: #3aaf3a; /* Green background */
+    transform: scale(1.05);
+}
+
+/* 
+   ===========================
+   HOW WE HELP SECTION
+   ===========================
+*/
+.how-we-help {
+    text-align: center;
+    padding: 50px 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Help Grid Layout - Matches Walmley */
+.help-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ✅ Help Item Layout - Image on Top, Text Below */
+.help-item {
+    max-width: 250px;
+    text-align: center;
+}
+
+/* ✅ Image Styling - Centered with No White Box */
+.help-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ✅ Help Text Styling */
+.help-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-top: 10px;
+}
+
+.help-item p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* 
+   ===========================
+   CONDITIONS SECTION
+   ===========================
+*/
+.conditions-section {
+    padding: 60px 20px;
+    background: rgba(241, 248, 233, 0.9);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Centering the "Conditions Treated" heading */
+.conditions-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* ✅ Ensuring the conditions grid remains centered */
+.conditions-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* === Condition Card Styling === */
+.condition-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+    position: relative;
+}
+
+/* ✅ Hover Effect - Turns Red Like Walmley */
+.condition-card:hover {
+    background: #d8232a; /* Red background */
+    color: white; /* White text */
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ✅ Hover Effect - Change Text/Icon Color on Hover */
+.condition-card:hover h3, 
+.condition-card:hover p,
+.condition-card:hover .icon {
+    color: white;
+}
+
+/* === Responsive Design === */
+@media (max-width: 1024px) {
+    .conditions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .help-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conditions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .help-item {
+        flex-direction: column;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .help-item img {
+        width: 80px;
+        height: 80px;
+    }
+}
