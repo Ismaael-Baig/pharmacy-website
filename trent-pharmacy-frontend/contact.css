@@ -12,7 +12,7 @@
 .page-hero.contact-hero {
   position: relative;
   height: 400px; /* match your Covid-19 page height */
-  background: url("images/contact-hero.jpg") center center / cover no-repeat;
+  background: url("../images/contact-hero.jpg") center center / cover no-repeat;
 }
 
 .page-hero.contact-hero::before {

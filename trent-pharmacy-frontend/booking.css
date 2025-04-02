@@ -9,7 +9,7 @@
 .booking-hero {
   position: relative;
   height: 300px;
-  background: url("images/booking-hero.png") center center / cover no-repeat;
+  background: url("../images/booking-hero.jpg") center center / cover no-repeat;
 }
 
 .booking-hero::before {

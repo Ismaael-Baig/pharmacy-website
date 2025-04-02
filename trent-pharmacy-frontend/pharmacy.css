@@ -190,7 +190,7 @@ nav a.active {
 }
 .hero-image {
   flex: 1;
-  background-image: url('images/trentpharmacy.jpg');
+  background-image: url('../images/trentpharmacy.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -497,7 +497,7 @@ nav a.active {
   display: none;
 }
 .hero-container.new-hero {
-  background: url("images/older-people.jpg") center center / cover no-repeat;
+  background: url("../images/older-people.jpg") center center / cover no-repeat;
   height: 70vh;
   display: flex;
   align-items: center;
@@ -505,7 +505,7 @@ nav a.active {
   position: relative;
 }
 .hero-container.new-hero.second-hero {
-  background: url("images/expert-guidance.jpg") center center / cover no-repeat;
+  background: url("../images/expert-guidance.jpg") center center / cover no-repeat;
 }
 .hero-text.new-hero-text {
   padding: 20px;
