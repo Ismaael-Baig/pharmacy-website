@@ -14,7 +14,7 @@ body {
 
 /* === Hero Banner === */
 .hero-banner {
-    background: url('images/covid19banner.jpg') no-repeat center center/cover; /* Updated Banner Image */
+    background: url('../images/covid19banner.jpg') no-repeat center center/cover; /* Updated Banner Image */
     padding: 100px 20px;
     text-align: center;
     color: white;

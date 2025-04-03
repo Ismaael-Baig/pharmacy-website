@@ -58,10 +58,14 @@
 /* Get In Touch Text */
 .get-in-touch p {
   font-size: 0.95rem;
-  margin-bottom: 60px;
+  line-height: 1.4;      /* slightly bigger line-height for comfort */
+  margin-bottom: 10px;   /* reduce margin so label & link are closer */
 }
-.get-in-touch strong {
-  font-weight: bold;
+.get-in-touch strong,
+.get-in-touch a.cool-hover {
+  display: inline-block;     /* keep them on one line */
+  vertical-align: middle;    /* ensure they share the same baseline */
+  margin-right: 5px;         /* small spacing between label & link */
 }
 
 /* Bottom Bar */
@@ -91,11 +95,11 @@
 */
 .cool-hover {
   position: relative;
-  display: inline-block;
+  display: inline-block; /* important for the pseudo-element overlay */
   color: #fff;
   text-decoration: none;
   overflow: hidden;
-  padding: 2px 4px;
+  padding: 2px 4px;      /* minimal padding so highlight is visible */
   transition: color 0.3s ease;
   cursor: pointer;
 }
