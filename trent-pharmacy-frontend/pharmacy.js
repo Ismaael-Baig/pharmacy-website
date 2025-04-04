@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 7000); // 7 seconds per slide
   }
 
-  // Updated function: animate each child element in the hero text one at a time (left-to-right) with slower transitions
+  // Animate each child element in the hero text sequentially (left-to-right) with slower transitions
   function animateHeroContent(slide) {
     const content = slide.querySelector('.hero-text-later');
     if (content) {
