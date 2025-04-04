@@ -1,0 +1,218 @@
+/* === Reset & Basic Styling === */
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+}
+
+/* === Hero Banner === */
+.hero-banner {
+  background: url('./images/travel-clinic-9.jpg') no-repeat center center/cover;
+  padding: 80px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+  min-height: 250px;
+}
+
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1rem;
+}
+
+.hero-content p a {
+  color: #8bc34a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero-content p a:hover {
+  text-decoration: underline;
+}
+
+/* === Main Content === */
+.travel-content {
+  padding: 40px 20px;
+  background: #fff;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.content-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-text {
+  flex: 1;
+}
+
+.content-text h2 {
+  color: #388e3c;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.call-now-btn,
+.book-online-btn {
+  display: inline-block;
+  background-color: #8bc34a;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.book-online-btn {
+  background-color: #388e3c;
+}
+
+.call-now-btn:hover,
+.book-online-btn:hover {
+  opacity: 0.9;
+}
+
+/* === Pricing Section === */
+.pricing-section {
+  padding: 50px 20px;
+  background: #f1f8e9;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+.pricing-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.pricing-table thead {
+  background: #e8f5e9;
+}
+
+.pricing-table th {
+  padding: 12px;
+  font-weight: bold;
+  text-align: left;
+  color: #2e7d32;
+  border-bottom: 1px solid #ccc;
+}
+
+.pricing-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.pricing-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Note under the table */
+.note {
+  font-size: 0.9rem;
+  color: gray;
+  margin-top: 20px;
+}
+
+/* CTA at the bottom */
+.booking-cta {
+  margin-top: 30px;
+}
+
+.booking-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.book-appointment-btn {
+  display: inline-block;
+  background-color: #8bc34a;
+  color: #fff;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  font-weight: bold;
+}
+
+.book-appointment-btn:hover {
+  opacity: 0.9;
+}
+
+/* === Responsive adjustments === */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .pricing-table td,
+  .pricing-table th {
+    padding: 8px;
+  }
+  
+  /* Reduce padding in main content */
+  .travel-content {
+    padding: 30px 15px;
+  }
+  
+  /* Adjust button sizes for touch */
+  .call-now-btn,
+  .book-online-btn,
+  .book-appointment-btn {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

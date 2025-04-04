@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Fill yearSelect (unique years)
-  let uniqueYears = Array.from(new Set(monthsArray.map(mObj => mObj.year))).sort((a,b) => a - b);
+  let uniqueYears = Array.from(new Set(monthsArray.map(mObj => mObj.year))).sort((a, b) => a - b);
   uniqueYears.forEach(yy => {
     const opt = document.createElement("option");
     opt.value = yy;
@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fill monthSelect (0..11)
   const monthNames = [
-    "January","February","March","April","May","June",
-    "July","August","September","October","November","December"
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
   ];
   for (let m = 0; m < 12; m++) {
     const opt = document.createElement("option");
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let firstDay = new Date(year, month, 1).getDay();
     // shift so Monday=0, Tue=1, ...
     let shift = (firstDay === 0) ? 6 : firstDay - 1;
-    let lastDay = new Date(year, month+1, 0).getDate();
+    let lastDay = new Date(year, month + 1, 0).getDate();
 
     let cells = [];
     // blank cells before day 1
@@ -297,6 +297,42 @@ document.addEventListener('DOMContentLoaded', () => {
   if (consentCheckbox) {
     consentCheckbox.addEventListener("change", checkDetails);
   }
+
+  // (F) Booking Form Submission – send booking email to the backend
+  const bookingForm = document.getElementById('booking-form');
+  bookingForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Collect form data
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const notes = document.getElementById('notes').value.trim();
+    const serviceRadio = document.querySelector("input[name='service']:checked");
+    const service = serviceRadio ? serviceRadio.value : "";
+    const date = selectedDate ? selectedDate.toDateString() : "";
+    const time = selectedTime ? selectedTime : "";
+
+    const bookingData = { name, email, service, date, time, notes };
+
+    try {
+      const response = await fetch('https://common-efficacious-glazer.glitch.me/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bookingData)
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        // Move to confirmation step on success
+        showStep(4);
+      } else {
+        alert('Error: ' + result.message);
+      }
+    } catch (err) {
+      console.error('Error sending booking:', err);
+      alert('Something went wrong while sending your booking. Please try again later.');
+    }
+  });
 
   // Show initial step (Step 1)
   showStep(1);

@@ -1,0 +1,138 @@
+/* Footer Container */
+.site-footer {
+  background-color: #0b7a14 !important; /* Darker green for main area */
+  color: #fff;
+  padding: 40px 0 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Main Footer Layout */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  padding: 0 20px 40px;
+}
+
+/* Footer Columns */
+.footer-column {
+  flex: 1 1 220px;
+  min-width: 220px;
+}
+
+/* Column Headings */
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* About Column Text */
+.about-column p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Quick Links & Services Lists */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+.footer-column ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+.footer-column ul li a:hover {
+  color: #b2fab4; /* Gentle green on hover */
+}
+
+/* Get In Touch Text */
+.get-in-touch p {
+  font-size: 0.95rem;
+  line-height: 1.4;      /* slightly bigger line-height for comfort */
+  margin-bottom: 10px;   /* reduce margin so label & link are closer */
+}
+.get-in-touch strong,
+.get-in-touch a.cool-hover {
+  display: inline-block;     /* keep them on one line */
+  vertical-align: middle;    /* ensure they share the same baseline */
+  margin-right: 5px;         /* small spacing between label & link */
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  background-color: #b2d400; /* Light lime/apple green */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+.footer-bottom p {
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+}
+.footer-bottom a {
+  color: #fff;
+  text-decoration: underline;
+}
+.footer-bottom a:hover {
+  color: #333;
+}
+
+/* Sliding Highlight for the Email/Phone Link */
+/* Reusable cool-hover class for animated hover effect */
+.cool-hover {
+  position: relative;
+  display: inline-block; /* important for the pseudo-element overlay */
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  padding: 2px 4px;      /* minimal padding so highlight is visible */
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.cool-hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #3399ff; /* Blue highlight */
+  z-index: -1;
+  transition: left 0.3s ease;
+}
+
+.cool-hover:hover::before {
+  left: 0;
+}
+
+.cool-hover:hover {
+  color: #fff;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 15px 40px;
+  }
+  .footer-column {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+  .footer-bottom {
+    text-align: left;
+  }
+}

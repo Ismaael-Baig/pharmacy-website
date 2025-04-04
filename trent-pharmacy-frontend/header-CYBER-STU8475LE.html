@@ -1,0 +1,74 @@
+<!-- header.html -->
+<div class="top-bar">
+    <span>📍 Trent Pharmacy</span>
+    <span>📍 
+        <a href="https://www.google.com/maps/place/171+Calais+Road,+Burton-on-Trent+DE13+0UN" 
+           target="_blank" 
+           class="address-link">
+           171 Calais Road, Burton-on-Trent DE13 0UN
+        </a>
+    </span>
+</div>
+
+<header>
+    <div class="logo">
+        <img src="./images/logo.png" alt="Trent Pharmacy Logo" width="100">
+        <h1>TRENT <span style="color: #8BC34A;">PHARMACY</span></h1>
+    </div>
+
+    <div class="contact-info">
+        <div>📞 Call Us: <strong>01283 564928</strong></div>
+        <div>⏱️ Opening Hours: 
+            <a href="#" id="openModal" style="color: black; font-weight: bold;">Click to View</a>
+        </div>
+        
+        <!-- Book Now button uses onclick to go to booking.html -->
+        <button 
+          class="book-now" 
+          onclick="window.location.href='booking.html'">
+          Book Now
+        </button>
+    </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+    <ul>
+        <!-- ✅ Link to your main home page -->
+        <li><a href="pharmacy.html">HOME</a></li>
+
+        <!-- ✅ About Us now points to about-us.html -->
+        <li><a href="about-us.html">ABOUT US</a></li>
+
+        <!-- SERVICES DROPDOWN -->
+        <li class="dropdown">
+            <a href="#">SERVICES</a>
+            <ul class="dropdown-content">
+                <li><a href="covid19.html">Covid-19 Vaccinations</a></li>
+                <li><a href="flu-vaccinations.html">Flu Vaccinations</a></li>
+                <li><a href="uti-testing.html">UTI Testing</a></li>
+                <li><a href="travel-vaccinations.html">Travel Vaccination Clinic</a></li>
+                <li><a href="free-contraception.html">Free Contraception Pill Service</a></li>
+                <li><a href="pharmacy-first.html">Pharmacy First Scheme</a></li>
+            </ul>
+        </li>
+
+        <!-- CONTACT US -->
+        <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+</nav>
+
+<!-- The Opening Hours Modal Markup -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Opening Hours</h2>
+    <p><strong>Monday:</strong> 9:00 – 17:00</p>
+    <p><strong>Tuesday:</strong> 9:00 – 17:00</p>
+    <p><strong>Wednesday:</strong> 9:00 – 17:00</p>
+    <p><strong>Thursday:</strong> 9:00 – 17:00</p>
+    <p><strong>Friday:</strong> 9:00 – 17:00</p>
+    <p><strong>Saturday:</strong> 9:00 – 12:00</p>
+    <p><strong>Sunday:</strong> Closed</p>
+  </div>
+</div>

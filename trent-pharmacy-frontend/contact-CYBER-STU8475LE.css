@@ -1,0 +1,288 @@
+/*****************************************************
+   CONTACT PAGE STYLES
+   - Full hero overlay with no black box behind text
+   - Same hero size as Covid-19 (400px height)
+   - "Home" link => pharmacy.html
+   - Disabled button styling (Walmsley-like)
+*****************************************************/
+
+/* ------------------------------
+   HERO SECTION
+------------------------------ */
+.page-hero.contact-hero {
+  position: relative;
+  height: 400px; /* match your Covid-19 page height */
+  background: url("./images/contact-hero.jpg") center center / cover no-repeat;
+}
+
+.page-hero.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.page-hero.contact-hero .hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.page-hero.contact-hero .hero-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.page-hero.contact-hero .hero-overlay p {
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.breadcrumb-home {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+.breadcrumb-home:hover {
+  color: #ccc;
+  text-decoration: none;
+}
+
+/* ------------------------------
+   MAIN CONTACT LAYOUT
+------------------------------ */
+.contact-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  gap: 30px;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+/* LEFT: WHITE FORM BOX */
+.contact-form-box {
+  flex: 1 1 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact-form-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-form-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #66bb6a;
+}
+
+/* Checkbox container */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Submit Button: normal style if enabled */
+.contact-submit-btn {
+  background-color: #66bb6a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.contact-submit-btn:hover:not(:disabled) {
+  background-color: #43a047;
+  transform: scale(1.05);
+}
+
+/* RIGHT: GREEN INFO BOX */
+.contact-info-box {
+  flex: 1 1 300px;
+  background-color: #43a047;
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.contact-info-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.contact-info-box h3 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.contact-info-box p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.contact-info-box a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   MAP SECTION STYLES (NEW)
+------------------------------ */
+.map-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.map-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* The iframe container: optional shadow/border */
+.map-iframe {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Make the iframe fill its container */
+.map-iframe iframe {
+  width: 100%;
+  height: 450px;
+  border: 0;
+}
+
+/* FINAL OVERRIDE BLOCK: Force the map to fill the entire bottom (full page width). */
+.fullwidth-map {
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  left: 50% !important;
+  right: 50% !important;
+  transform: translateX(-50%) !important;
+  position: relative !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.fullwidth-map .map-iframe {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.fullwidth-map .map-iframe iframe {
+  height: 500px !important; /* or adjust to your preferred height */
+}
+
+/*****************************************************
+  RESPONSIVE STYLES FOR MOBILE
+*****************************************************/
+@media (max-width: 768px) {
+  /* Adjust hero section */
+  .page-hero.contact-hero {
+    height: 300px;
+  }
+  .page-hero.contact-hero .hero-overlay h1 {
+    font-size: 2rem;
+  }
+  .page-hero.contact-hero .hero-overlay p {
+    font-size: 1rem;
+  }
+  /* Stack contact container vertically */
+  .contact-container {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  /* Reduce form box padding and font sizes */
+  .contact-form-box {
+    padding: 20px;
+  }
+  .contact-form-box h2 {
+    font-size: 1.6rem;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+  .contact-submit-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  /* Adjust info box font sizes */
+  .contact-info-box {
+    padding: 20px;
+  }
+  .contact-info-box h2 {
+    font-size: 1.6rem;
+  }
+  .contact-info-box h3,
+  .contact-info-box p {
+    font-size: 0.9rem;
+  }
+  /* Adjust map section */
+  .map-section h2 {
+    font-size: 1.6rem;
+  }
+  .map-iframe iframe {
+    height: 350px;
+  }
+}

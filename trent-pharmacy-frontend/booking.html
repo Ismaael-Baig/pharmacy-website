@@ -134,36 +134,35 @@
       </div>
     </div>
 
-    <!-- Step 3: Your Details -->
     <div class="booking-step step-3">
-      <h2>Enter Your Details</h2>
-      <p>Please provide your name, email, and any notes:</p>
-      <div class="details-form">
-        <label>
-          <span>Full Name:</span>
-          <input type="text" id="fullName" placeholder="John Doe" />
-        </label>
-        <label>
-          <span>Email:</span>
-          <input type="email" id="email" placeholder="john@example.com" />
-        </label>
-        <label>
-          <span>Notes:</span>
-          <textarea id="notes" placeholder="Anything else we should know?"></textarea>
-        </label>
-        <!-- Example of a consent checkbox -->
-        <label class="consent-label">
-          <input type="checkbox" id="consentCheckbox" />
-          I consent to have my personal information stored and processed by Trent Pharmacy 
-          for the purpose of fulfilling my appointment.
-        </label>
-      </div>
-      <div class="step-nav">
-        <button class="back-btn" data-back="2">&laquo; Back</button>
-        <button class="next-btn" data-next="4" disabled>Next &raquo;</button>
-      </div>
+      <form id="booking-form">
+        <h2>Enter Your Details</h2>
+        <p>Please provide your name, email, and any notes:</p>
+        <div class="details-form">
+          <label>
+            <span>Full Name:</span>
+            <input type="text" id="fullName" name="name" placeholder="John Doe" required />
+          </label>
+          <label>
+            <span>Email:</span>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+          </label>
+          <label>
+            <span>Notes:</span>
+            <textarea id="notes" name="message" placeholder="Anything else we should know?"></textarea>
+          </label>
+          <label class="consent-label">
+            <input type="checkbox" id="consentCheckbox" required />
+            I consent to have my personal information stored and processed...
+          </label>
+        </div>
+        <div class="step-nav">
+          <button class="back-btn" data-back="2">&laquo; Back</button>
+          <button class="next-btn" data-next="4" disabled type="submit">Next &raquo;</button>
+        </div>
+      </form>
     </div>
-
+    
     <!-- Step 4: Confirmation -->
     <div class="booking-step step-4">
       <h2>All Done!</h2>

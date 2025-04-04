@@ -1,0 +1,390 @@
+/* -------------------------------------------------------------------------
+   1) IMPORT THE "CORMORANT GARAMOND" AND "MONTSERRAT" FONTS AT THE TOP
+------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@400;600&display=swap');
+
+/****************************************************
+  BOOKING HERO BANNER
+*****************************************************/
+.booking-hero {
+  position: relative;
+  height: 300px;
+}
+
+.booking-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.booking-hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+.booking-hero-overlay h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.booking-hero-overlay p {
+  font-size: 1rem;
+}
+
+.breadcrumb-home {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.breadcrumb-home:hover {
+  color: #ccc;
+}
+
+/****************************************************
+  BOOKING CONTAINER & STEPS
+*****************************************************/
+.booking-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.booking-steps-indicator {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.step-indicator {
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.step-indicator .step-num {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 50%;
+  background: #ccc;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.step-indicator.active-indicator .step-num {
+  background: #2e7d32;
+}
+
+.step-indicator .step-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #555;
+}
+
+/****************************************************
+  STEP SECTIONS
+*****************************************************/
+.booking-step {
+  display: none;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.booking-step.active {
+  display: block;
+}
+
+/* Step 1 */
+.service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+.service-options label {
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+.service-options input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Step 2: Calendar & Time Slots */
+.date-time-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Calendar styles */
+.mini-calendar {
+  flex: 1 1 250px;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+}
+
+.calendar-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.calendar-header select {
+  font-size: 1rem;
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Calendar table */
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  table-layout: fixed;
+}
+.calendar-table thead {
+  background: #f9f9f9;
+}
+.calendar-table th {
+  color: #6a1b9a;
+  padding: 8px 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #eee;
+}
+.calendar-table td {
+  width: 14.2%;
+  height: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  vertical-align: middle;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  border: 1px solid #f0f0f0;
+}
+.calendar-table td:hover {
+  background: #f1f8e9;
+}
+.calendar-table td.inactive-day {
+  color: #ccc;
+  cursor: default;
+  background: #fafafa;
+}
+.calendar-table td.inactive-day:hover {
+  background: #fafafa;
+}
+.calendar-table td.selected-date {
+  background: #6a1b9a !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* Time slot grid */
+.time-slot-grid {
+  flex: 1 1 250px;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+}
+.time-slot-grid h4 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+/* Table for timeslots */
+.time-slots-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+.time-slots-table td {
+  padding: 10px;
+  border: 1px solid #f0f0f0;
+  font-weight: 600;
+  color: #6a1b9a;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.time-slots-table td:hover {
+  background: #e0f2f1;
+}
+.time-slots-table td.selected {
+  background: #6a1b9a !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* Step navigation buttons */
+.step-nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.step-nav button {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.step-nav button:hover:not(:disabled) {
+  background: #1b5e20;
+  transform: scale(1.05);
+}
+.step-nav button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Step 3: Details form */
+.details-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+  font-family: 'Montserrat', sans-serif;
+}
+.details-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #333;
+}
+.details-form input,
+.details-form textarea {
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.details-form input:focus,
+.details-form textarea:focus {
+  border-color: #66bb6a;
+}
+
+/* Consent checkbox styling (Step 3) */
+.consent-label {
+  flex-direction: row;
+  align-items: center;
+  font-weight: normal;
+  margin-top: 10px;
+}
+.consent-label input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Step 4 */
+.step-4 p {
+  margin: 20px 0;
+}
+
+/****************************************************
+  LOADING/SPINNER ANIMATION FOR NEXT/BACK CLICKS
+****************************************************/
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.8;
+}
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-top: 3px solid #d8232a;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Additional Montserrat usage for headings, etc. */
+.booking-step h2,
+.booking-step p,
+.step-indicator .step-label {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/****************************************************
+  RESPONSIVE STYLES FOR MOBILE
+****************************************************/
+@media (max-width: 768px) {
+  .booking-hero {
+    height: 200px;
+  }
+  .booking-hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+  .booking-hero-overlay p {
+    font-size: 0.9rem;
+  }
+  .booking-container {
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+  .booking-steps-indicator {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .step-indicator {
+    margin-bottom: 10px;
+  }
+  .date-time-grid {
+    flex-direction: column;
+  }
+  .mini-calendar, .time-slot-grid {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+  .calendar-table td {
+    height: 40px;
+    font-size: 0.9rem;
+  }
+  .details-form label {
+    font-size: 0.9rem;
+  }
+  .details-form input,
+  .details-form textarea {
+    padding: 8px;
+  }
+  .step-nav button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
