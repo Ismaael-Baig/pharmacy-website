@@ -14,7 +14,7 @@ body {
 
 /* === Hero Banner === */
 .hero-banner {
-    background: url('../images/contraception.jpg') no-repeat center center/cover;
+    background: url('./images/contraception.jpg') no-repeat center center/cover;
     padding: 80px 20px;
     text-align: center;
     color: white;

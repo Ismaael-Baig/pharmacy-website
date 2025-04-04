@@ -3,7 +3,7 @@
   Large background + black overlay + centered text + breadcrumb 
 */
 .about-hero {
-  background: url('../images/about-bg.jpg') center center / cover no-repeat;
+  background: url('./images/about-bg.jpg') center center / cover no-repeat;
   position: relative;
   min-height: 50vh;
   display: flex;

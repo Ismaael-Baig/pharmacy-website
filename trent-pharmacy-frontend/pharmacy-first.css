@@ -15,7 +15,7 @@
 .hero-banner {
     position: relative;
     height: 400px; /* same height as your contact page hero */
-    background: url('../images/pharmacy-first-banner.jpg') center center / cover no-repeat;
+    background: url('./images/pharmacy-first-banner.jpg') center center / cover no-repeat;
 }
 
 /* Full-page tinted overlay using ::before */
