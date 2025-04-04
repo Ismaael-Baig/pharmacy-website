@@ -8,6 +8,11 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Default route to show that the backend is running
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
+});
+
 // Import the email module
 const sendEmail = require('./sendEmail');
 
