@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingData = { name, email, service, date, time, notes };
 
     try {
-      const response = await fetch('https://pharmacy-website-backend-71su4v4c8-ismaaels-projects.vercel.app/api/book', {
+      const response = await fetch('https://pharmacy-website-backend-bmatq6ufc-ismaaels-projects.vercel.app/api/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingData)
