@@ -92,6 +92,9 @@
    Sliding Highlight for the Email/Phone Link
    ------------------------------------------
    Reusable cool-hover class for animated hover effect
+/* Sliding Highlight for the Email/Phone Link
+   ------------------------------------------
+   Reusable cool-hover class for animated hover effect
 */
 .cool-hover {
   position: relative;
@@ -111,7 +114,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background-color: #66bb6a; /* Lighter green slide-in background */
+  background-color: #3399ff; /* Blue highlight */
   z-index: -1;
   transition: left 0.3s ease;
 }
