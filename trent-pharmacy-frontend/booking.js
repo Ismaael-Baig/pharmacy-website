@@ -61,23 +61,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // (D) Step 2: Calendar & Time Slots
-  // Get selectors for calendar & time slots
   const monthSelect = document.getElementById("monthSelect");
   const yearSelect = document.getElementById("yearSelect");
   const calendarBody = document.getElementById("calendarBody");
   const selectedDateLabel = document.getElementById("selectedDateLabel");
-  // Instead of a vertical container, we have a <table> with id="timeSlotsTable"
   const timeSlotsTable = document.getElementById("timeSlotsTable");
   const nextStep2Btn = document.querySelector('.step-2 .next-btn');
 
   let selectedDate = null;
   let selectedTime = null;
-
   const now = new Date();
   const currentYear = now.getFullYear();
   const currentMonth = now.getMonth();
 
-  // Build array of months from the current month/year up to year 2030
+  // Build array of months from current month/year to 2030
   let dateLoop = new Date(currentYear, currentMonth, 1);
   let monthsArray = [];
   while (dateLoop.getFullYear() <= 2030) {
@@ -109,32 +106,27 @@ document.addEventListener('DOMContentLoaded', () => {
     monthSelect.appendChild(opt);
   }
 
-  // Set default in the selects to the current month/year
+  // Set default in the selects
   yearSelect.value = currentYear;
   monthSelect.value = currentMonth;
 
   // Build the mini-calendar
   function buildCalendar(year, month) {
     calendarBody.innerHTML = "";
-    // day of week of the 1st
     let firstDay = new Date(year, month, 1).getDay();
-    // shift so Monday=0, Tue=1, ...
     let shift = (firstDay === 0) ? 6 : firstDay - 1;
     let lastDay = new Date(year, month + 1, 0).getDate();
 
     let cells = [];
-    // blank cells before day 1
     for (let i = 0; i < shift; i++) {
       cells.push({ dayNum: "", inactive: true });
     }
-    // fill days
     for (let d = 1; d <= lastDay; d++) {
       let checkDate = new Date(year, month, d);
       let isPast = checkDate < new Date(now.getFullYear(), now.getMonth(), now.getDate());
       cells.push({ dayNum: d, inactive: isPast });
     }
 
-    // chunk into weeks
     let rowCount = Math.ceil(cells.length / 7);
     let idx = 0;
     for (let r = 0; r < rowCount; r++) {
@@ -150,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             td.setAttribute("data-day", cell.dayNum);
             td.addEventListener("click", () => {
-              // Unselect all in the calendar
               calendarBody.querySelectorAll("td").forEach(x => x.classList.remove("selected-date"));
               td.classList.add("selected-date");
               selectedDate = new Date(year, month, cell.dayNum);
@@ -175,24 +166,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Build time slots in a table grid
   function buildTimeSlots() {
-    // Clear existing time slots
     timeSlotsTable.innerHTML = "";
     selectedTime = null;
     checkIfStep2Ready();
     if (!selectedDate) return;
 
-    let dayOfWeek = selectedDate.getDay(); // 0=Sun, 1=Mon, ...
+    let dayOfWeek = selectedDate.getDay();
     let openHour, openMin, closeHour, closeMin;
-
-    // Example: Mon-Fri: 9-17, Sat: 9-12, Sun: closed
     if (dayOfWeek >= 1 && dayOfWeek <= 5) {
       openHour = 9; openMin = 0; closeHour = 17; closeMin = 0;
     } else if (dayOfWeek === 6) {
       openHour = 9; openMin = 0; closeHour = 12; closeMin = 0;
     } else {
-      // Sunday => closed
       const closedRow = document.createElement("tr");
       const closedCell = document.createElement("td");
       closedCell.colSpan = 4;
@@ -202,29 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    let slotTime = new Date(
-      selectedDate.getFullYear(),
-      selectedDate.getMonth(),
-      selectedDate.getDate(),
-      openHour,
-      openMin
-    );
-    let endTime = new Date(
-      selectedDate.getFullYear(),
-      selectedDate.getMonth(),
-      selectedDate.getDate(),
-      closeHour,
-      closeMin
-    );
+    let slotTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), openHour, openMin);
+    let endTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), closeHour, closeMin);
 
-    // Collect all times in an array
     const timesArray = [];
     while (slotTime < endTime) {
       timesArray.push(formatTime(slotTime));
       slotTime.setMinutes(slotTime.getMinutes() + 15);
     }
 
-    // Build table rows with 4 columns each
     const cols = 4;
     for (let i = 0; i < timesArray.length; i += cols) {
       const row = document.createElement("tr");
@@ -233,11 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const td = document.createElement("td");
         if (idx < timesArray.length) {
           td.textContent = timesArray[idx];
-          // Make clickable
           td.addEventListener("click", () => {
-            // Unselect all
             timeSlotsTable.querySelectorAll("td").forEach(x => x.classList.remove("selected"));
-            // Mark this one
             td.classList.add("selected");
             selectedTime = timesArray[idx];
             checkIfStep2Ready();
@@ -260,7 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function checkIfStep2Ready() {
-    // Only enable Next if a date & time are selected
     nextStep2Btn.disabled = !(selectedDate && selectedTime);
   }
 
@@ -275,19 +243,18 @@ document.addEventListener('DOMContentLoaded', () => {
   monthSelect.addEventListener("change", onMonthYearChange);
   yearSelect.addEventListener("change", onMonthYearChange);
 
-  // Build initial calendar for current month/year
   buildCalendar(currentYear, currentMonth);
 
   // (E) Step 3: Details form – now also check for a consent checkbox
   const fullNameInput = document.getElementById("fullName");
   const emailInput = document.getElementById("email");
   const nextStep3Btn = document.querySelector('.step-3 .next-btn');
-  const consentCheckbox = document.getElementById("consentCheckbox"); // If you added one
+  const consentCheckbox = document.getElementById("consentCheckbox");
 
   function checkDetails() {
     const nameFilled = fullNameInput.value.trim() !== "";
     const emailFilled = emailInput.value.trim() !== "";
-    const consentGiven = consentCheckbox ? consentCheckbox.checked : true; // default to true if not present
+    const consentGiven = consentCheckbox ? consentCheckbox.checked : true;
 
     nextStep3Btn.disabled = !(nameFilled && emailFilled && consentGiven);
   }
@@ -315,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingData = { name, email, service, date, time, notes };
 
     try {
-      const response = await fetch('https://pharmacy-website-backend-e0dfbe7-r7j5.ismaaels-projects.vercel.app', {
+      const response = await fetch('https://pharmacy-website-backend-ggiv118lu-ismaaels-projects.vercel.app/api/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingData)
