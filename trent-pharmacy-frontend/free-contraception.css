@@ -153,12 +153,33 @@ body {
 
 /* === Responsive Design === */
 @media (max-width: 768px) {
+    /* Hero adjustments */
+    .hero-banner {
+        padding: 60px 15px;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    /* Stack main content vertically */
     .content-wrapper {
         flex-direction: column;
         text-align: center;
     }
-
-    .hero-content h1 {
-        font-size: 2rem;
+    /* Ensure images scale properly */
+    .content-image img {
+        max-width: 100%;
+    }
+    /* Adjust text sizes */
+    .content-text h2 {
+        font-size: 1.7rem;
+    }
+    .content-text p {
+        font-size: 1rem;
+    }
+    /* Make call-now button full width for easier tapping */
+    .call-now-btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
     }
 }

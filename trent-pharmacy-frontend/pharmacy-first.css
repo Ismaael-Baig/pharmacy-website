@@ -221,7 +221,7 @@
     color: white;
 }
 
-/* === Responsive Design === */
+/* === Responsive Design for Pharmacy First Page === */
 @media (max-width: 1024px) {
     .conditions-grid {
         display: grid;
@@ -230,28 +230,53 @@
 }
 
 @media (max-width: 768px) {
+    /* Stack the intro container vertically */
     .intro-container {
         flex-direction: column;
         text-align: center;
+        padding: 0 15px;
     }
-
+    /* Stack help grid items vertically */
     .help-grid {
         flex-direction: column;
         align-items: center;
     }
-
+    /* Adjust conditions grid */
     .conditions-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-
+    /* Adjust help item images */
     .help-item {
         flex-direction: column;
         text-align: center;
         max-width: 100%;
     }
-
     .help-item img {
         width: 80px;
         height: 80px;
+    }
+    /* Adjust hero section for smaller screens */
+    .hero-banner {
+        height: 300px;
+        background-size: cover;
+        padding: 60px 15px;
+    }
+    .hero-banner .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-banner .hero-content p {
+        font-size: 1rem;
+    }
+    /* Adjust intro section */
+    .intro-section {
+        padding: 60px 15px;
+    }
+    /* Adjust how-we-help section */
+    .how-we-help {
+        padding: 40px 15px;
+    }
+    /* Adjust conditions section */
+    .conditions-section {
+        padding: 40px 15px;
     }
 }

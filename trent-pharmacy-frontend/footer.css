@@ -88,14 +88,8 @@
   color: #333;
 }
 
-/* 
-   Sliding Highlight for the Email/Phone Link
-   ------------------------------------------
-   Reusable cool-hover class for animated hover effect
-/* Sliding Highlight for the Email/Phone Link
-   ------------------------------------------
-   Reusable cool-hover class for animated hover effect
-*/
+/* Sliding Highlight for the Email/Phone Link */
+/* Reusable cool-hover class for animated hover effect */
 .cool-hover {
   position: relative;
   display: inline-block; /* important for the pseudo-element overlay */
@@ -132,6 +126,7 @@
   .footer-container {
     flex-direction: column;
     align-items: flex-start;
+    padding: 0 15px 40px;
   }
   .footer-column {
     flex: 1 1 100%;

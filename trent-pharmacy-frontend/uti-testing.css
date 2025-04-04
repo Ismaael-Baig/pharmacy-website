@@ -24,7 +24,8 @@ body {
 .hero-banner::after {
     content: '';
     position: absolute;
-    top: 0; left: 0;
+    top: 0; 
+    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
@@ -154,8 +155,21 @@ body {
         flex-direction: column;
         text-align: center;
     }
-
+    
     .hero-content h1 {
         font-size: 2rem;
+    }
+    
+    /* Reduce padding for main content */
+    .uti-content {
+        padding: 30px 15px;
+    }
+    
+    /* Adjust button sizes for touch screens */
+    .call-now-btn {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 }

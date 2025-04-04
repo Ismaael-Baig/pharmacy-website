@@ -867,18 +867,6 @@ nav a.active {
   gap: 30px;
   align-items: center;
 }
-/* If you keep a single <img>, normal styling:
-   .aesthetics-left img {
-     width: 100%;
-     border-radius: 5px;
-     object-fit: cover;
-   }
-   But replaced by the slider below.
-*/
-.aesthetics-left {
-  flex: 1 1 500px;
-  min-width: 300px;
-}
 /* FAQ Box on the right */
 .aesthetics-right {
   flex: 1 1 500px;
@@ -947,16 +935,6 @@ nav a.active {
   max-height: 500px;
   margin-top: 8px;
   padding: 12px;
-}
-
-@media (max-width: 768px) {
-  .aesthetics-container {
-    flex-direction: column;
-  }
-  .aesthetics-left,
-  .aesthetics-right {
-    flex: 1 1 100%;
-  }
 }
 
 /* --------------------------------------------------------------------
@@ -1070,16 +1048,6 @@ nav a.active {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   object-fit: cover;
 }
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-  }
-  .about-text,
-  .about-image {
-    flex: 1 1 100%;
-    text-align: center;
-  }
-}
 
 /* 
    ===============================================
@@ -1146,4 +1114,79 @@ nav a,
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* ================================
+   RESPONSIVE STYLES FOR PHARMACY FIRST PAGE
+================================ */
+@media (max-width: 768px) {
+  /* Adjust hero section */
+  .hero-banner {
+    height: 300px;
+    padding: 60px 15px;
+  }
+  .hero-banner .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-banner .hero-content p {
+    font-size: 1rem;
+  }
+  /* Stack header elements vertically if needed */
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .contact-info {
+    margin-top: 10px;
+  }
+  /* Navigation adjustments: stack links if too crowded */
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  /* Adjust hero slider height */
+  .hero-slider {
+    height: 50vh;
+  }
+  /* Adjust delivery service box for mobile */
+  .delivery-service.anchored-floating-box {
+    position: static;
+    width: auto;
+    margin: 20px 0;
+    padding: 10px;
+  }
+  /* Adjust intro section stacking */
+  .intro-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 15px;
+  }
+  .intro-section {
+    padding: 60px 15px;
+  }
+  /* Adjust services section if needed */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Adjust help grid stacking */
+  .help-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Adjust conditions grid to grid layout */
+  .conditions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  /* Reduce font sizes for various texts */
+  nav a,
+  .top-bar,
+  .address-link {
+    font-size: 0.9rem;
+  }
+  /* Adjust modal content width on mobile */
+  .modal-content {
+    max-width: 90%;
+  }
 }
