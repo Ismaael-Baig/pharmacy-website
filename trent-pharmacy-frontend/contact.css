@@ -12,7 +12,7 @@
 .page-hero.contact-hero {
   position: relative;
   height: 400px; /* match your Covid-19 page height */
-  background: url("../images/contact-hero.jpg") center center / cover no-repeat;
+  background: url("./images/contact-hero.jpg") center center / cover no-repeat;
 }
 
 .page-hero.contact-hero::before {
@@ -176,18 +176,9 @@
   text-decoration: underline;
 }
 
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
-  }
-}
-
-/* 
-  ============================
-  MAP SECTION STYLES (NEW)
-  ============================
-*/
+/* ------------------------------
+   MAP SECTION STYLES (NEW)
+------------------------------ */
 .map-section {
   max-width: 1200px;
   margin: 40px auto;
@@ -217,14 +208,7 @@
   border: 0;
 }
 
-/* 
-  --------------------------------------------------------------------
-  FINAL OVERRIDE BLOCK: 
-  Force the map to fill the entire bottom (full page width).
-  We'll remove container constraints and set width:100vw 
-  so it extends beyond your main container.
-  --------------------------------------------------------------------
-*/
+/* FINAL OVERRIDE BLOCK: Force the map to fill the entire bottom (full page width). */
 .fullwidth-map {
   width: 100vw !important;
   margin: 0 !important;
@@ -243,5 +227,62 @@
 }
 
 .fullwidth-map .map-iframe iframe {
-  height: 500px !important; /* or whatever height you prefer */
+  height: 500px !important; /* or adjust to your preferred height */
+}
+
+/*****************************************************
+  RESPONSIVE STYLES FOR MOBILE
+*****************************************************/
+@media (max-width: 768px) {
+  /* Adjust hero section */
+  .page-hero.contact-hero {
+    height: 300px;
+  }
+  .page-hero.contact-hero .hero-overlay h1 {
+    font-size: 2rem;
+  }
+  .page-hero.contact-hero .hero-overlay p {
+    font-size: 1rem;
+  }
+  /* Stack contact container vertically */
+  .contact-container {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  /* Reduce form box padding and font sizes */
+  .contact-form-box {
+    padding: 20px;
+  }
+  .contact-form-box h2 {
+    font-size: 1.6rem;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group textarea {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+  .contact-submit-btn {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  /* Adjust info box font sizes */
+  .contact-info-box {
+    padding: 20px;
+  }
+  .contact-info-box h2 {
+    font-size: 1.6rem;
+  }
+  .contact-info-box h3,
+  .contact-info-box p {
+    font-size: 0.9rem;
+  }
+  /* Adjust map section */
+  .map-section h2 {
+    font-size: 1.6rem;
+  }
+  .map-iframe iframe {
+    height: 350px;
+  }
 }

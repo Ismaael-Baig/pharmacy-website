@@ -9,7 +9,6 @@
 .booking-hero {
   position: relative;
   height: 300px;
-
 }
 
 .booking-hero::before {
@@ -340,4 +339,52 @@
 .booking-step p,
 .step-indicator .step-label {
   font-family: 'Montserrat', sans-serif;
+}
+
+/****************************************************
+  RESPONSIVE STYLES FOR MOBILE
+****************************************************/
+@media (max-width: 768px) {
+  .booking-hero {
+    height: 200px;
+  }
+  .booking-hero-overlay h1 {
+    font-size: 1.8rem;
+  }
+  .booking-hero-overlay p {
+    font-size: 0.9rem;
+  }
+  .booking-container {
+    margin: 20px auto;
+    padding: 0 10px;
+  }
+  .booking-steps-indicator {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .step-indicator {
+    margin-bottom: 10px;
+  }
+  .date-time-grid {
+    flex-direction: column;
+  }
+  .mini-calendar, .time-slot-grid {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+  .calendar-table td {
+    height: 40px;
+    font-size: 0.9rem;
+  }
+  .details-form label {
+    font-size: 0.9rem;
+  }
+  .details-form input,
+  .details-form textarea {
+    padding: 8px;
+  }
+  .step-nav button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
 }

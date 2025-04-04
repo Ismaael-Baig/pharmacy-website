@@ -8,7 +8,7 @@ body {
 
 /* === Hero Banner === */
 .hero-banner {
-  background: url('../images/travel-clinic-9.jpg') no-repeat center center/cover;
+  background: url('./images/travel-clinic-9.jpg') no-repeat center center/cover;
   padding: 80px 20px;
   text-align: center;
   color: white;
@@ -138,7 +138,7 @@ body {
 .pricing-table th {
   padding: 12px;
   font-weight: bold;
-  text-align: left;  /* Ensure text is left-aligned */
+  text-align: left;
   color: #2e7d32;
   border-bottom: 1px solid #ccc;
 }
@@ -146,7 +146,7 @@ body {
 .pricing-table td {
   padding: 12px;
   border-bottom: 1px solid #eee;
-  text-align: left;  /* Ensure the medication/vaccine names are left-aligned */
+  text-align: left;
 }
 
 .pricing-table tr:last-child td {
@@ -185,19 +185,34 @@ body {
   opacity: 0.9;
 }
 
-/* Responsive adjustments */
+/* === Responsive adjustments === */
 @media (max-width: 768px) {
   .content-wrapper {
     flex-direction: column;
     text-align: center;
   }
-
+  
   .hero-content h1 {
     font-size: 2rem;
   }
-
+  
   .pricing-table td,
   .pricing-table th {
     padding: 8px;
+  }
+  
+  /* Reduce padding in main content */
+  .travel-content {
+    padding: 30px 15px;
+  }
+  
+  /* Adjust button sizes for touch */
+  .call-now-btn,
+  .book-online-btn,
+  .book-appointment-btn {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
