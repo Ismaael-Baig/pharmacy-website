@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingData = { name, email, service, date, time, notes };
 
     try {
-      const response = await fetch('https://common-efficacious-glazer.glitch.me/api/book', {
+      const response = await fetch('https://pharmacy-website-backend-e0dfbe7-r7j5.ismaaels-projects.vercel.app', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookingData)

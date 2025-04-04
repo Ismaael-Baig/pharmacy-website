@@ -1,9 +1,8 @@
+require('dotenv').config(); // Load .env file
+
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const sendEmail = require('./sendEmail');
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,12 +16,9 @@ app.get('/', (req, res) => {
   res.send('Backend is running!');
 });
 
-// Import the email module
-const sendEmail = require('./sendEmail');
-
-// Route to handle contact form submissions
-app.post('/contact', (req, res) => {
-  // Expect the contact form to send firstName, lastName, email, phoneNumber, and message in req.body
+// Route to handle booking submissions (changed from /contact to /api/book)
+app.post('/api/book', (req, res) => {
+  // Expect the booking form to send firstName, lastName, email, phoneNumber, and message in req.body
   const { firstName, lastName, email, phoneNumber, message } = req.body;
   
   // Validate required fields
@@ -33,8 +29,8 @@ app.post('/contact', (req, res) => {
   // Construct the email options using the submitted data
   const emailOptions = {
     to: process.env.BUSINESS_EMAIL || 'badcoopo@gmail.com', // Use env variable or fallback
-    subject: 'New Contact Form Submission',
-    text: `You have received a new message from your website contact form:
+    subject: 'New Booking Submission',
+    text: `You have received a new booking from your website:
 
 Name: ${firstName} ${lastName}
 Email: ${email}
@@ -48,10 +44,10 @@ ${message}
   // Send the email using the sendEmail module
   sendEmail(emailOptions)
     .then(() => {
-      res.status(200).send('Your message has been sent successfully.');
+      res.status(200).send('Your booking has been received and confirmed.');
     })
     .catch((error) => {
-      res.status(500).send('Error sending message: ' + error.message);
+      res.status(500).send('Error sending booking confirmation: ' + error.message);
     });
 });
 
