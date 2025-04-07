@@ -251,12 +251,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextStep3Btn = document.querySelector('.step-3 .next-btn');
   const consentCheckbox = document.getElementById("consentCheckbox");
 
+  // Advanced Validation: Validate email format
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  }
+  
+  // Advanced Validation: Validate full name (letters, spaces, hyphens, apostrophes)
+  function validateName(name) {
+    const re = /^[a-zA-Z\s'-]+$/;
+    return re.test(name);
+  }
+
   function checkDetails() {
-    const nameFilled = fullNameInput.value.trim() !== "";
-    const emailFilled = emailInput.value.trim() !== "";
+    const nameValue = fullNameInput.value.trim();
+    const nameFilled = nameValue !== "";
+    const nameValid = validateName(nameValue);
+    const emailValue = emailInput.value.trim();
+    const emailFilled = emailValue !== "";
+    const emailValid = validateEmail(emailValue);
     const consentGiven = consentCheckbox ? consentCheckbox.checked : true;
 
-    nextStep3Btn.disabled = !(nameFilled && emailFilled && consentGiven);
+    // Optionally, you can display error messages here if the name or email is invalid.
+    // e.g., document.getElementById('nameError').textContent = nameValid ? '' : 'Invalid name';
+    //       document.getElementById('emailError').textContent = emailValid ? '' : 'Invalid email';
+
+    nextStep3Btn.disabled = !(nameFilled && nameValid && emailFilled && emailValid && consentGiven);
   }
 
   fullNameInput.addEventListener("input", checkDetails);
@@ -271,8 +291,8 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     // Collect form data
-    const name = document.getElementById('fullName').value.trim();
-    const email = document.getElementById('email').value.trim();
+    const name = fullNameInput.value.trim();
+    const email = emailInput.value.trim();
     const notes = document.getElementById('notes').value.trim();
     const serviceRadio = document.querySelector("input[name='service']:checked");
     const service = serviceRadio ? serviceRadio.value : "";
@@ -281,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const bookingData = { name, email, service, date, time, notes };
 
-    console.log("Booking data being sent:", bookingData); // Added console log for debugging
+    console.log("Booking data being sent:", bookingData); // Debug log
 
     try {
       const response = await fetch('https://pharmacy-website-backend.vercel.app/api/book', {
