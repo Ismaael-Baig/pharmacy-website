@@ -9,6 +9,8 @@
 .booking-hero {
   position: relative;
   height: 300px;
+  /* Added background image property - update the path as needed */
+  background: url("./images/booking-bg.jpg") no-repeat center center/cover;
 }
 
 .booking-hero::before {
