@@ -190,7 +190,7 @@ nav a.active {
 }
 .hero-image {
   flex: 1;
-  background-image: url('./images/trentpharmacy.jpg');
+  background-image: url('../images/trentpharmacy.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
