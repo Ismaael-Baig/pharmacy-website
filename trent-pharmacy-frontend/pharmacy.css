@@ -171,9 +171,6 @@ nav a.active {
   background-color: #8bc34a;
   color: #000;
 }
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 
 /* Hero Section (Original) */
 .hero-container {

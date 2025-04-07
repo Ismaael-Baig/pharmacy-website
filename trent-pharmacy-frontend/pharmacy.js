@@ -1,4 +1,13 @@
+// Global guard variable to prevent double-initialization
+window.hasInitializedPharmacyCode = false;
+
 document.addEventListener("DOMContentLoaded", () => {
+  if (window.hasInitializedPharmacyCode) {
+    // The code was already initialized by the second block, so skip this block
+    return;
+  }
+  window.hasInitializedPharmacyCode = true;
+
   // === 1) Dynamic Header Loading ===
   const headerContainer = document.getElementById('header-container');
   if (headerContainer) {
@@ -25,16 +34,31 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
         }
-        // === Dropdown Menu Functionality ===
+        // === Dropdown Menu Functionality (Single-Open on Click) ===
         const dropdowns = document.querySelectorAll('.dropdown');
         dropdowns.forEach(dropdown => {
-          dropdown.addEventListener('mouseenter', () => {
+          dropdown.addEventListener('click', (e) => {
+            // Check if the click is on a submenu link within .dropdown-content
+            const submenuLink = e.target.closest('.dropdown-content a');
+            if (submenuLink) {
+              // Allow the link to navigate naturally
+              return;
+            }
+            e.preventDefault();
+            // Close all other dropdowns
+            dropdowns.forEach(other => {
+              if (other !== dropdown) {
+                const otherContent = other.querySelector('.dropdown-content');
+                if (otherContent) {
+                  otherContent.style.display = 'none';
+                }
+              }
+            });
+            // Toggle current dropdown
             const content = dropdown.querySelector('.dropdown-content');
-            if (content) content.style.display = 'block';
-          });
-          dropdown.addEventListener('mouseleave', () => {
-            const content = dropdown.querySelector('.dropdown-content');
-            if (content) content.style.display = 'none';
+            if (content) {
+              content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+            }
           });
         });
         // === Active Link Highlighting ===
@@ -81,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
           item.style.transition = "opacity 1s ease, transform 1s ease";
           item.style.opacity = "1";
           item.style.transform = "translateX(0)";
-        }, index * 500); // 500ms delay between each element
+        }, index * 500);
       });
     }
   }
@@ -131,6 +155,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  // If we already initialized in the first block, skip this second block
+  if (window.hasInitializedPharmacyCode) {
+    return;
+  }
+  window.hasInitializedPharmacyCode = true;
+
   // === 1) Dynamic Header Loading ===
   const headerContainer = document.getElementById('header-container');
   if (headerContainer) {
@@ -138,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(response => response.text())
       .then(data => {
         headerContainer.innerHTML = data;
+
         // === Modal Functionality (After Header Load) ===
         const modal = document.getElementById("modal");
         const openModal = document.getElementById("openModal");
@@ -157,18 +188,31 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
         }
-        // === Dropdown Menu Functionality ===
+
+        // === Dropdown Menu Functionality (Single-Open on Click) ===
         const dropdowns = document.querySelectorAll('.dropdown');
         dropdowns.forEach(dropdown => {
-          dropdown.addEventListener('mouseenter', () => {
+          dropdown.addEventListener('click', (e) => {
+            const submenuLink = e.target.closest('.dropdown-content a');
+            if (submenuLink) {
+              return;
+            }
+            e.preventDefault();
+            dropdowns.forEach(other => {
+              if (other !== dropdown) {
+                const otherContent = other.querySelector('.dropdown-content');
+                if (otherContent) {
+                  otherContent.style.display = 'none';
+                }
+              }
+            });
             const content = dropdown.querySelector('.dropdown-content');
-            if (content) content.style.display = 'block';
-          });
-          dropdown.addEventListener('mouseleave', () => {
-            const content = dropdown.querySelector('.dropdown-content');
-            if (content) content.style.display = 'none';
+            if (content) {
+              content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+            }
           });
         });
+
         // === Active Link Highlighting ===
         const currentPath = window.location.pathname.split("/").pop();
         const navLinks = document.querySelectorAll("nav a");
@@ -193,31 +237,27 @@ document.addEventListener("DOMContentLoaded", () => {
       currentSlide = (currentSlide + 1) % slides.length;
       slides[currentSlide].classList.add('active');
       animateHeroContent(slides[currentSlide]);
-    }, 7000); // 7 seconds per slide
+    }, 7000);
   }
 
-  // Animate each child element in the hero text sequentially (left-to-right) with slower transitions
   function animateHeroContent(slide) {
     const content = slide.querySelector('.hero-text-later');
     if (content) {
       const items = Array.from(content.children);
-      // Reset each item: hide and shift left
       items.forEach(item => {
         item.style.opacity = "0";
         item.style.transform = "translateX(-50px)";
         item.style.transition = "";
       });
-      // Animate each item sequentially with a longer delay and slower transition
       items.forEach((item, index) => {
         setTimeout(() => {
           item.style.transition = "opacity 1s ease, transform 1s ease";
           item.style.opacity = "1";
           item.style.transform = "translateX(0)";
-        }, index * 500); // 500ms delay between each element
+        }, index * 500);
       });
     }
   }
-
   initHeroSlider();
 
   // === 3) Custom Aesthetics Slider Initialization ===
@@ -230,10 +270,11 @@ document.addEventListener("DOMContentLoaded", () => {
       slides[currentSlide].classList.remove('active');
       currentSlide = (currentSlide + 1) % slides.length;
       slides[currentSlide].classList.add('active');
-    }, 3000); // 3 seconds per slide
+    }, 3000);
   }
   initAestheticsSlider();
-// === 4) Single-open FAQ Toggling with Slide-down Transitions ===
+
+  // === 4) Single-open FAQ Toggling
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
@@ -249,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // === 5) Dynamic Footer Loading ===
+  // === 5) Dynamic Footer Loading
   const footerContainer = document.getElementById('footer-container');
   if (footerContainer) {
     fetch('footer.html')
@@ -260,4 +301,3 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(error => console.error('Error loading footer:', error));
   }
 });
-
