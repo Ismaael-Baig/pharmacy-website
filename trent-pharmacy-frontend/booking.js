@@ -281,6 +281,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const bookingData = { name, email, service, date, time, notes };
 
+    console.log("Booking data being sent:", bookingData); // Added console log for debugging
+
     try {
       const response = await fetch('https://pharmacy-website-backend.vercel.app/api/book', {
         method: 'POST',
