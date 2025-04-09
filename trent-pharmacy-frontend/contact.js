@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://pharmacy-website-backend.vercel.app/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
