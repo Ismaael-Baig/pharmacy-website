@@ -69,6 +69,18 @@ document.addEventListener("DOMContentLoaded", () => {
             link.classList.add("active");
           }
         });
+
+        // ===== BURGER MENU TOGGLE CODE (Mobile) =====
+        // This code toggles the mobile navigation when the burger icon is clicked.
+        const burger = document.querySelector('.burger-menu');
+        const navLinksContainer = document.querySelector('.nav-links');
+        if (burger && navLinksContainer) {
+          burger.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('nav-active');
+            // Optional: Animate the burger icon by toggling a "toggle" class.
+            burger.classList.toggle('toggle');
+          });
+        }
       })
       .catch(error => console.error('Error loading header:', error));
   }
@@ -155,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // If we already initialized in the first block, skip this second block
+  // If we already initialized in the first block, skip this second block.
   if (window.hasInitializedPharmacyCode) {
     return;
   }
@@ -274,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   initAestheticsSlider();
 
-  // === 4) Single-open FAQ Toggling
+  // === 4) Single-open FAQ Toggling ===
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
@@ -290,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // === 5) Dynamic Footer Loading
+  // === 5) Dynamic Footer Loading ===
   const footerContainer = document.getElementById('footer-container');
   if (footerContainer) {
     fetch('footer.html')

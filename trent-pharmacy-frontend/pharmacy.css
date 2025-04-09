@@ -12,7 +12,7 @@
     - Unified Owl Carousel fade animations
     - Updated crossfade keyframes for a smoother hero transition
     - Added custom hero slider code for .hero-slider / .hero-slide
-    - Moved anchored-floating box to top-right
+    - Adjusted the anchored-floating box on desktop and mobile
     - Added custom aesthetics slider code for .aesthetics-slide
 ------------------------------------------------------------------------- */
 
@@ -95,7 +95,7 @@ header {
   font-weight: bold;
 }
 
-/* Book Now Button (with #10 micro-interaction) */
+/* Book Now Button */
 .book-now {
   background-color: #66bb6a;
   color: white;
@@ -172,7 +172,7 @@ nav a.active {
   color: #000;
 }
 
-/* Hero Section (Original) */
+/* Hero Section */
 .hero-container {
   display: flex;
   align-items: center;
@@ -195,11 +195,9 @@ nav a.active {
   animation: zoomIn 2s ease-in-out;
 }
 
-/* =========================
-   CUSTOM HERO SLIDER (NO OWL)
-========================= */
+/* CUSTOM HERO SLIDER */
 .hero-slider {
-  position: relative;
+  position: relative; /* for mobile anchoring */
   width: 100%;
   height: 70vh;
   overflow: hidden;
@@ -219,9 +217,7 @@ nav a.active {
   z-index: 2;
 }
 
-/* -------------------------------
-   Custom Hero Slider: Delivery Box
-------------------------------- */
+/* Delivery Box (Desktop) */
 .delivery-service.anchored-floating-box {
   position: absolute;
   top: 30px;
@@ -264,15 +260,8 @@ nav a.active {
   color: #fff;
   transform: scale(1.05);
 }
-@media (max-width: 600px) {
-  .delivery-service.anchored-floating-box {
-    position: static;
-    width: auto;
-    margin: 20px;
-  }
-}
 
-/* Services Section (Blue background) */
+/* Services Section */
 .services-section {
   background-color: #eaf4ff;
   padding: 40px 20px;
@@ -487,9 +476,7 @@ nav a.active {
   }
 }
 
-/* -------------------------------------------------------------------------
-   NEW / OVERRIDING STYLES FOR THE "ALREWAS-LIKE" HERO SECTION
-------------------------------------------------------------------------- */
+/* "Alrewas-like" Hero Section */
 .hero-image {
   display: none;
 }
@@ -591,9 +578,7 @@ nav a.active {
   transform: scale(1.05);
 }
 
-/* =========================
-   OWL CAROUSEL DOT STYLING
-========================= */
+/* OWL CAROUSEL DOT STYLING */
 .owl-dots {
   position: absolute;
   bottom: 15px;
@@ -618,27 +603,14 @@ nav a.active {
   box-shadow: 0 0 10px #66bb6a;
 }
 
-/* 
-   ==============
-   FADE IN/OUT (SLOW-MO) FOR HERO SLIDER
-   ==============
-   => Updated to a simpler crossfade (no transform)
-*/
+/* FADE IN/OUT FOR HERO SLIDER */
 @keyframes fadeInUnified {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 @keyframes fadeOutUnified {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 .owl-animated .fadeInSlideshow {
   animation: fadeInUnified 1s ease forwards;
@@ -665,10 +637,7 @@ nav a.active {
   }
 }
 
-/* -------------------------------
-   Custom Hero Slider Styles
-   (Place this at the bottom of pharmacy.css)
-------------------------------- */
+/* Custom Hero Slider Styles */
 .hero-slider {
   position: relative;
   width: 100%;
@@ -703,11 +672,7 @@ nav a.active {
   animation: dropIn 1s ease forwards;
 }
 
-/* 
-   ===============================================
-   WALMSLEY-LIKE A–Z BOXES
-   ===============================================
-*/
+/* WALMSLEY-LIKE A–Z BOXES */
 .health-az-section {
   background: #eaf4ff;
   padding: 40px 20px;
@@ -847,11 +812,7 @@ nav a.active {
   transform: scale(1.05);
 }
 
-/* 
-   ===============================================
-   AESTHETICS / FAQ SECTION
-   ===============================================
-*/
+/* AESTHETICS / FAQ SECTION */
 .aesthetics-section {
   padding: 40px 20px;
   background: #ffffff;
@@ -934,9 +895,7 @@ nav a.active {
   padding: 12px;
 }
 
-/* --------------------------------------------------------------------
-   ADDITIONAL CLASSES FOR FULL-WIDTH MAP (IF APPLICABLE)
--------------------------------------------------------------------- */
+/* FULL-WIDTH MAP (IF APPLICABLE) */
 .fullwidth-map {
   width: 100vw !important;
   margin: 0 !important;
@@ -956,18 +915,12 @@ nav a.active {
   height: 500px !important;
 }
 
-/* --------------------------------------------------------------------
-   WHITE BORDER AROUND EACH SERVICE ITEM
--------------------------------------------------------------------- */
+/* WHITE BORDER AROUND EACH SERVICE ITEM */
 .service-item {
   border: 2px solid #fff !important;
 }
 
-/* 
-   ===============================================
-   ABOUT SECTION (Enhanced)
-   ===============================================
-*/
+/* ABOUT SECTION */
 .about-section {
   background-color: #fff;
   padding: 60px 20px;
@@ -1046,11 +999,7 @@ nav a.active {
   object-fit: cover;
 }
 
-/* 
-   ===============================================
-   OVERRIDE: HEADINGS & TOP-RIGHT TEXT => MONTSERRAT
-   ===============================================
-*/
+/* OVERRIDE: HEADINGS & TOP-RIGHT TEXT => MONTSERRAT */
 nav a,
 .top-bar a,
 .top-bar .contact-info,
@@ -1061,10 +1010,7 @@ nav a,
   font-size: 1rem;
 }
 
-/* 
-   HERO TEXT => MONTSERRAT 
-   => Matches Alrewas-like bold headings
-*/
+/* HERO TEXT => MONTSERRAT */
 .hero-text-later h1 {
   font-family: 'Montserrat', sans-serif !important;
   font-size: 2.2rem !important;
@@ -1081,10 +1027,7 @@ nav a,
   margin-bottom: 15px;
 }
 
-/* ================================
-   AESTHETICS CUSTOM SLIDER (NO OWL)
-   => Overlapping slides that fade
-================================ */
+/* AESTHETICS CUSTOM SLIDER (NO OWL) */
 .aesthetics-left.aesthetics-slider {
   position: relative;
   width: 100%;
@@ -1113,77 +1056,147 @@ nav a,
   display: block;
 }
 
-/* ================================
-   RESPONSIVE STYLES FOR PHARMACY FIRST PAGE
-================================ */
+/* RESPONSIVE STYLES */
 @media (max-width: 768px) {
-  /* Adjust hero section */
-  .hero-banner {
-    height: 300px;
-    padding: 60px 15px;
-  }
-  .hero-banner .hero-content h1 {
-    font-size: 2rem;
-  }
-  .hero-banner .hero-content p {
-    font-size: 1rem;
-  }
-  /* Stack header elements vertically if needed */
+  /* Header Adjustments */
   header {
     flex-direction: column;
     align-items: center;
     padding: 10px;
   }
-  .contact-info {
-    margin-top: 10px;
+  .logo, .contact-info {
+    text-align: center;
+    margin: 0;
   }
-  /* Navigation adjustments: stack links if too crowded */
   nav ul {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
-  /* Adjust hero slider height */
+  
+  /* BURGER MENU STYLES (Mobile Only) */
+  .burger-menu {
+    display: block;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  .burger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hide the default nav links by default and toggle via .nav-active */
+  .nav-links {
+    display: none; /* hidden by default */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #43a047; /* match nav background color */
+  }
+  .nav-links.nav-active {
+    display: flex; /* shown when toggled by JS */
+  }
+  
+  /* Hero Section */
   .hero-slider {
     height: 50vh;
   }
-  /* Adjust delivery service box for mobile */
-  .delivery-service.anchored-floating-box {
-    position: static;
-    width: auto;
-    margin: 20px 0;
-    padding: 10px;
+  .hero-text-later h1 {
+    font-size: 1.8rem;
   }
-  /* Adjust intro section stacking */
-  .intro-container {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 15px;
+  .hero-text-later p {
+    font-size: 0.9rem;
   }
-  .intro-section {
-    padding: 60px 15px;
+  
+  @media (max-width: 768px) {
+    .delivery-service.anchored-floating-box {
+      position: absolute !important;
+      /* Increase 'top' to move the box further down from the top. */
+      top: 15px !important;
+      right: 10px !important;
+      /* Increase width for a wider box. */
+      width: 500px !important;
+      padding: 6px 10px !important;
+      font-size: 0.85rem !important;
+      border-radius: 8px !important;
+      background-color: #388e3c !important;
+      color: #fff !important;
+  
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+  
+      z-index: 9999; /* ensures it stays above other elements */
+    }
+    .delivery-service.anchored-floating-box .icon {
+      font-size: 1rem !important;
+      margin-bottom: 4px !important;
+    }
+    .delivery-service.anchored-floating-box .call-btn {
+      font-size: 0.85rem !important;
+      padding: 4px 8px !important;
+      margin-top: 6px !important;
+    }
   }
-  /* Adjust services section if needed */
+
+  @media (max-width: 768px) {
+    /* Force "Trent Pharmacy" to stay on the same line: */
+    .logo h1 {
+      /* Prevents line breaks within the text */
+      white-space: nowrap;
+      /* Optionally reduce font size if needed */
+      font-size: 1.4rem; /* Adjust to taste */
+    }
+  }
+  
+  
+  
+  /* Services Section */
   .services-grid {
     grid-template-columns: 1fr;
   }
-  /* Adjust help grid stacking */
-  .help-grid {
-    flex-direction: column;
-    align-items: center;
+  
+  /* FAQ Items */
+  .faq-question {
+    padding: 10px 15px;
+    font-size: 1rem;
   }
-  /* Adjust conditions grid to grid layout */
-  .conditions-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  /* Reduce font sizes for various texts */
-  nav a,
-  .top-bar,
-  .address-link {
+  .faq-answer {
     font-size: 0.9rem;
   }
-  /* Adjust modal content width on mobile */
-  .modal-content {
-    max-width: 90%;
+  
+  /* Footer */
+  #footer-container {
+    padding: 20px;
+    font-size: 0.9rem;
   }
 }
+
+/* Additional Mobile Tweaks for Smaller Devices */
+@media (max-width: 480px) {
+  nav a, .top-bar a, .address-link {
+    font-size: 0.8rem;
+  }
+  .hero-text-later h1 {
+    font-size: 1.6rem;
+  }
+  .hero-text-later p {
+    font-size: 0.8rem;
+  }
+  .delivery-service.anchored-floating-box {
+    max-width: 80% !important;
+    padding: 4px 6px !important;
+  }
+
+  
+}
+
+/* =================== BURGER MENU APPENDED CODE =================== */
+/* On smaller devices (max-width: 768px), show burger icon 
+   and hide nav by default. If your nav links are in 
+   <ul class="nav-links">, toggling .nav-active will display them. */
+

@@ -278,5 +278,17 @@
     /* Adjust conditions section */
     .conditions-section {
         padding: 40px 15px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .conditions-grid {
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .condition-card {
+        margin: 0 auto;
+        text-align: center;
     }
 }
