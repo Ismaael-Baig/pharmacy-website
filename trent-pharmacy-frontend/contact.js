@@ -36,7 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.forEach((value, key) => {
       data[key] = value.trim();
     });
-    console.table(data)
+    
+    // Merge firstName and lastName into a single "name" field
+    data.name = `${data.firstName} ${data.lastName}`;
+    // Optionally, you can remove firstName and lastName:
+    // delete data.firstName;
+    // delete data.lastName;
+    
+    // Set a default subject if none is provided
+    if (!data.subject) {
+      data.subject = "New Contact Submission";
+    }
+    
+    console.table(data);  // Debug log
+
     try {
       const response = await fetch('https://pharmacy-website-backend.vercel.app/api/contact', {
         method: 'POST',
@@ -45,14 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       
       const result = await response.json();
+      console.log("Response status:", response.status);
+      console.log("Response JSON:", result);
       
       if (response.ok) {
-        alert("Thank you! Your message has been sent successfully.");
-        form.reset();
-        // Re-run check in case the button should be disabled again
-        checkRequiredFields();
+        // Redirect to a confirmation page for successful contact submission
+        window.location.href = "contact-success.html";
       } else {
-        
         alert("Error: " + result.message);
       }
     } catch (err) {
