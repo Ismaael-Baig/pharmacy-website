@@ -1209,7 +1209,7 @@ nav a,
       position: absolute !important;
       /* Place the box below the slideshow text 
          (the further 'top' is, the lower it appears) */
-      top: 60%; 
+      top: 52%; 
       left: 50%;
       transform: translateX(-50%);
       width: 20% !important;
@@ -1260,7 +1260,7 @@ nav a,
     .hero-text-later p {
       font-size: 0.85rem !important;
       line-height: 1.3 !important;
-      top: 50px;
+      top: 60px;
     }
   
     /* Shrink the call-to-action button */
