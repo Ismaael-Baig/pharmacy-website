@@ -256,8 +256,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
   }
-  
-  // Advanced Validation: Validate full name (letters, spaces, hyphens, apostrophes)
+
+  // Advanced Validation: Validate full name (allow letters, spaces, hyphens, apostrophes)
   function validateName(name) {
     const re = /^[a-zA-Z\s'-]+$/;
     return re.test(name);
@@ -271,10 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailFilled = emailValue !== "";
     const emailValid = validateEmail(emailValue);
     const consentGiven = consentCheckbox ? consentCheckbox.checked : true;
-
-    // Optionally, you can display error messages here if the name or email is invalid.
-    // e.g., document.getElementById('nameError').textContent = nameValid ? '' : 'Invalid name';
-    //       document.getElementById('emailError').textContent = emailValid ? '' : 'Invalid email';
 
     nextStep3Btn.disabled = !(nameFilled && nameValid && emailFilled && emailValid && consentGiven);
   }
@@ -310,7 +306,10 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(bookingData)
       });
 
+      console.log("Response status:", response.status);
       const result = await response.json();
+      console.log("Response JSON:", result);
+      
       if (response.ok) {
         // Move to confirmation step on success
         showStep(4);

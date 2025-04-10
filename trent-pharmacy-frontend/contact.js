@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.forEach((value, key) => {
       data[key] = value.trim();
     });
-
+    console.table(data)
     try {
       const response = await fetch('https://pharmacy-website-backend.vercel.app/api/contact', {
         method: 'POST',
@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Re-run check in case the button should be disabled again
         checkRequiredFields();
       } else {
+        
         alert("Error: " + result.message);
       }
     } catch (err) {

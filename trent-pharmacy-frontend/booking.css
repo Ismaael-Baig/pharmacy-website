@@ -389,4 +389,36 @@
     padding: 10px 15px;
     font-size: 0.9rem;
   }
+
+  @media (max-width: 768px) {
+    /* Force the step indicators into a row again */
+    .booking-steps-indicator {
+      flex-direction: row !important; 
+      justify-content: center;
+      align-items: center;
+      gap: 20px; /* space between steps */
+      margin-bottom: 15px; /* slightly smaller bottom margin */
+    }
+  
+    /* Ensure each step indicator does not get forced onto a new line */
+    .step-indicator {
+      flex: 0 0 auto;
+      margin-bottom: 0 !important;
+      text-align: center;
+    }
+  
+    /* Make the circles a bit smaller */
+    .step-indicator .step-num {
+      width: 28px; 
+      height: 28px;
+      line-height: 28px; 
+      margin-bottom: 5px; 
+    }
+  
+    /* Slightly reduce the label font size if needed */
+    .step-indicator .step-label {
+      font-size: 0.85rem;
+    }
+  }
+  
 }
